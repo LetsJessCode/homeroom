@@ -18,7 +18,12 @@
     <nav>
       <ul>
         <li><%= link_to "Homeroom", root_path %></li>
+
+        <% unless logged_in? %>
         <li><%= link_to "Signup", signup_path %></li>
+        <% else %>
+        <li><%= link_to "Add Subject" %></li>
+        <% end %>
        </ul>
     </nav>
     <%= yield %>

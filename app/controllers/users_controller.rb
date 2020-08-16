@@ -9,15 +9,12 @@ class UsersController < ApplicationController
 
         if @user.save
             session[:user_id] = @user.id
-            redirect_to users_path
+            redirect_to subjects_path
         else
             render :new
         end
     end
 
-    def index
-        @users = User.all
-    end
 
     private
     def user_params
