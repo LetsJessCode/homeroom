@@ -1,0 +1,25 @@
+<h1>Register for your Homeroom Account</h1>
+
+<%= form_for @user, url: signup_path do |f| %>
+  <div>
+       <%= f.label :first_name %>
+       <%= f.text_field :first_name %>
+  </div>
+  <div>
+       <%= f.label :last_name %>
+       <%= f.text_field :last_name %>
+  </div>
+  <div>
+       <%= f.label :grade %>
+       <%= f.text_field :grade %>
+  </div>
+  <div>
+       <%= f.label :email %>
+       <%= f.text_field :email %>
+  </div>
+  <div>
+       <%= f.label :password %>
+       <%= f.password_field :password %>
+  </div>
+  <%= f.submit "Signup" %>
+<% end %>
