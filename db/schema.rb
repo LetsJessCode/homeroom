@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_004148) do
     t.string "name"
     t.boolean "completed"
     t.text "questions"
-    t.integer "difficutly"
+    t.integer "difficulty"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

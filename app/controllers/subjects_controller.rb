@@ -25,7 +25,7 @@ class SubjectsController < ApplicationController
 
     private
     def subject_params
-        params.require(:subject).permit(:name, :user_id)
+        params.require(:subject).permit(:name, :user_id, :assignment_id, assignment_attributes: [:name, :completed, :questions, :difficulty] )
     end
 
     def current_user

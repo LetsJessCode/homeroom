@@ -4,7 +4,7 @@ class CreateAssignments < ActiveRecord::Migration[6.0]
       t.string :name
       t.boolean :completed
       t.text :questions
-      t.integer :difficutly
+      t.integer :difficulty
 
       t.timestamps
     end

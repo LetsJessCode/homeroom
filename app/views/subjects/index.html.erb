@@ -1,4 +1,4 @@
-<h1 class="center">Class List</h1>
+<h1><%= current_user[:first_name] %>'s Class List</h1>
     <% @subjects.each do |subject|  %>
     <div>
         <h2><%= link_to subject.name, user_subject_path(@user.id, subject) %></h2>

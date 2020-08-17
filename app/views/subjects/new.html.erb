@@ -1,7 +1,20 @@
 <h1 class="center">Add Subject</h1>
-
+<h3>Hey <%= current_user[:first_name] %>, add an Assignment</h3>
 <%= form_for([current_user, @subject]) do |f| %>
-<h3><%= f.label :name %></h3>
-<h3><%= f.text_field :name %></h3>
+<div>
+    <h3><%= f.label :name %></h3>
+    <h3><%= f.text_field :name %></h3>
+</div>
+<%= f.fields_for :assignment, @subject.build_assignment do |assign|  %>
+<div>
+    <h3>Assignment Name: <%= assign.text_field :name %></h3>
+    <h3>Questions: <%= assign.text_area :questions %></h3>
+    <h3>Completed? <%= assign.check_box :completed %></h3>
+    <h3>Level of Difficulty(5 being most difficult): <%= assign.select (:difficulty), 
+    options_for_select(
+        [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]]) %></h3>   
+</div>
+    <% end %>
 <h3><%= f.submit "New Subject" %></h3>
 <% end %>
+<hr>
