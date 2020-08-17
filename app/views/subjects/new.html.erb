@@ -5,7 +5,7 @@
     <h3><%= f.label :name %></h3>
     <h3><%= f.text_field :name %></h3>
 </div>
-<%= f.fields_for :assignment, @subject.build_assignment do |assign|  %>
+<%= f.fields_for :assignments do |assign|  %>
 <div>
     <h3>Assignment Name: <%= assign.text_field :name %></h3>
     <h3>Questions: <%= assign.text_area :questions %></h3>

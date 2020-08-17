@@ -1,4 +1,4 @@
 class Assignment < ApplicationRecord
-    has_many :subjects
-    has_many :students, through: :subjects
+    has_and_belongs_to_many :subjects
+    has_many :users, through: :subjects
 end

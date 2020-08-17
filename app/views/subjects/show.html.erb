@@ -1,10 +1,16 @@
 <h1 class="center"><%= @subject.name %> Assignments</h1>
 <hr><hr>
 <h3>View Assignment</h3> <!--button-->
-<h5>Assignment: <%= @subject.assignment.name %></h5>
-<h5>Questions: <%= @subject.assignment.questions %></h5>
-<h5>Completed?: <%= @subject.assignment.completed %></h5>
-<h5>How difficult was the assignment?: <%= @subject.assignment.difficulty %></h5>
+<ol>
+    <% @subject.assignments.each do |assignment| %>
+     <li> 
+        <h3>Assignment: <%= assignment.name %></h3>
+        <h3>Questions: <%= assignment.questions %></h3>
+        <h3>Completed?: <%= assignment.completed %></h3>
+        <h3>How difficult was the assignment?: <%= assignment.difficulty %></h3>
+     </li> 
+    <% end %>
+</ol>
 
 
 <%= link_to "Edit Subject", user_subjects_path %> | <%= link_to "Remove Assignment", user_subject_path, method: "delete" %>
