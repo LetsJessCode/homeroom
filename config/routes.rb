@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :assignments
   root to: "static#homeroom"
 
   get "/signup", to: "users#new", as: "signup"

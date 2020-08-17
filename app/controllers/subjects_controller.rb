@@ -18,8 +18,17 @@ class SubjectsController < ApplicationController
         end
     end
 
+    def show
+        current_user
+       @subject = Subject.find_by_id(params[:id])
+    end
+
     private
     def subject_params
-        params.require(:subject).permit(:name)
+        params.require(:subject).permit(:name, :user_id)
+    end
+
+    def current_user
+        @user = User.find_by_id(params[:user_id])
     end
 end

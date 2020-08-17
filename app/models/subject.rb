@@ -1,5 +1,6 @@
 class Subject < ApplicationRecord
     belongs_to :user
+    belongs_to :assignment
     
     validates_presence_of :name
     validates_uniqueness_of :name
