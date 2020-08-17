@@ -8,9 +8,19 @@ class SessionController < ApplicationController
     
         if @user && @user.authenticate(user_params[:password])
             session[:user_id] = @user.id
-            redirect_to users_path
+            redirect_to user_subjects_path(current_user)
         else
             render :new
         end
+    end
+
+    def destroy
+        session.clear
+        redirect_to root_path
+    end
+
+    private
+    def user_params
+        params.require(:user).permit(:email, :password)
     end
 end

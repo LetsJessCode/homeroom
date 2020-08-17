@@ -1,13 +1,18 @@
 class SubjectsController < ApplicationController
 
     def index
-        @subjects = Subject.all
+        @user = User.find_by_id(params[:user_id])
+        @subjects = @user.subjects.all
+    end
+
+    def new
+        @subject = Subject.new
     end
 
     def create
-    @subject = Subject.create(subject_params)
+      @subject = current_user.subjects.build(subject_params)
         if @subject.save
-            redirect_to subjects_path
+            redirect_to user_subjects_path(current_user)
         else 
             render :new
         end
